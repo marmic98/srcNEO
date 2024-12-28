@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="styleMobile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <title>Nuova Editoria Organizzata</title>
+
+    </head>
+    <body>
+        <script>
+            if (window.innerWidth >= 600) {
+            window.location = "../index.html";
+}
+        </script>
+        
+
+        <div class="topnav">
+            <a class="logo" href="indexMobile.html" ><img src="imgs/logo.png" alt="logo"></a>
+            <!-- Navigation links (hidden by default) -->
+        
+            <div id="myLinks">
+                <a class="mainLink" href="comics.html">Fumetti</a>
+                <a class="mainLink" href="chisiamoMobile.html">Chi siamo</a>
+                <a class="mainLink" href="contattimobile.html">Contatti</a>
+              
+                <div class="social">
+                    <a href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="imgs/ig20.png" alt="instagram"></a>
+                    <a href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="imgs/tg20.png" alt="telegram"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="imgs/fb20.png" alt="facebook" ></a>
+                    <a href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="imgs/tw20.png" alt="twitter" ></a>
+                </div>
+        
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        
+          <script>
+                    /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+                function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                }
+          </script>
+
+        <div class="sliderCont">
+            <!-- Image Slider Start -->
+            <div class="slider">
+                <div class="slides">
+                <!-- Radio Button Start  -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                
+                <!-- Radio Button Close  -->
+    
+                <!-- Slide Image Start -->
+                <div class="slide first">
+                    <img src="imgs/slide1.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="imgs/slide2.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="imgs/slide3.png" alt="">
+                </div>
+                <!-- Slide Image Close -->
+    
+                <!-- Automatic Navigation Start -->
+                <div class="navigation-auto">
+                    <div class="auto-btn-1"></div>
+                    <div class="auto-btn-2"></div>
+                    <div class="auto-btn-3"></div>
+                    
+                </div>
+                <!-- Automatic Navigation Close -->
+                </div>
+                
+                <!-- Mannual Navigation Start -->
+                <div class="navigation-mannual">
+                    <label for="radio1" class="mannual-btn"></label>
+                    <label for="radio2" class="mannual-btn"></label>
+                    <label for="radio3" class="mannual-btn"></label>
+                    
+                </div>
+                <!-- Mannual Navigation Close -->
+            </div>
+            <!-- Image Slider Close -->
+        </div>
+        
+        <script>
+        var counter = 1;
+        setInterval(function()  {
+          document.getElementById('radio'+ counter).checked = true;
+          counter++; 
+    
+          if(counter>3){
+            counter=1
+          }
+    
+        }, 5000);
+        </script>
+
+        <div class="novita">
+            <h2>NOVITà</h2>
+            <div class="novitaCont">
+
+                <div class="novitaItem">
+                    <a href="ungiornoemezzocirca.html"><img src="imgs/ugemcMain.png" alt=""></a>
+                    <p>Un giorno e mezzo circa</p>
+                </div>
+
+                <div class="novitaItem">
+                    <a href="lavanda.html"><img src="imgs/lavandaMain.png" alt=""></a>
+                    <p>Lavanda</p>
+                </div>
+
+                <div class="novitaItem">
+                    <a href="interrogatore.html"><img src="imgs/interrogatoreMain.png" alt=""></a>
+                    <p>L'Interrogatore</p>
+                </div>
+
+                <div class="novitaItem">
+                    <a href="malombra.html"><img src="imgs/malombraMain.png" alt=""></a>
+                    <p>Malombra</p>
+                </div>
+
+                <div class="novitaItem">
+                    <a href="glumMobile.html"><img src="imgs/GLUMVASKYmobilec.png" alt=""></a>
+                    <p>Glumvasky</p>
+                </div>
+
+                <div class="novitaItem">
+                    <a href="comic.html"><img src="imgs/dirGiust.png" alt=""></a>
+                    <p>Una direzione giusta.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diconodinoi">
+            
+            <h2>Dicono di noi</h2>
+                <div class="diconodinoiPosts">
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">Il Pappagallo<br></p>
+                            <p class="sbText">Malombra di Salvatore Vivenzio e Arianna Melone</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">CorriereNerd.it<br></p>
+                            <p class="sbText">Malombra di Salvatore Vivenzio e Arianna Melone</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://loscarabocchiatore.it/blog/nuova-editoria-organizzata-e-lieta-di-presentare-malombra/?fbclid=IwAR359DmrizkYsYgrrt6tbAq2GKD2BpMW9EQE-Kc8vNr3T48ENWqOKOUnhfc"  target="_blank">
+                            <p class="sbTitle">LO Scarabocchiatore<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata è lieta di presentare “Malombra”</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">Nerd Pool<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata presenta: "Malombra"</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.ilmattino.it/avellino/vivenzio_superpoteri_senza_eroi-7370086.html"  target="_blank">
+                            <p class="sbTitle">IL MATTINO<br></p>
+                            <p class="sbText">Vivenzio, superpoteri senza eroi</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.ilpappagallo.info/news/glumvasky-il-kickstarter-della-nuova-editoria-organizzata?fbclid=IwAR0eDKW41lZTrJ-D8Ky0LK0NsSWoKPD2iuGaydl5Lr0qVcbPqpLsw8Fugpk#.ZDWLlEezC_U.facebook"  target="_blank">
+                            <p class="sbTitle">Il Pappagallo<br></p>
+                            <p class="sbText">NEO presenta “Glumvasky: Good Men Bad Things #1”</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://loscarabocchiatore.it/blog/nuova-editoria-organizzata-presenta-glumvasky-good-men-bad-things-1/"  target="_blank">
+                            <p class="sbTitle">LO Scarabocchiatore<br></p>
+                            <p class="sbText">NEO presenta “Glumvasky: Good Men Bad Things #1”</p>
+                        </a>
+                    </div>
+                    
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://gliaudaci.blogspot.com/2023/04/nuova-editoria-organizzata-lancia-il.html"  target="_blank">
+                            <p class="sbTitle">GLI AUDACI<br></p>
+                            <p class="sbText">KickStarter “Glumvasky – Good Men Bad Things”</p>
+                        </a>
+                    </div>
+
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://t.me/nuovaeditoriaorganizzata/41"  target="_blank">
+                            <p class="sbTitle">IL MATTINO<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata sceglie una direzione giusta</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.nerdpool.it/2022/11/25/nuova-editoria-organizzata/" target="_blank">
+                            <p class="sbTitle">Nerd Pool<br></p>
+                            <p class="sbText">Nasce NEO, Nuova Editoria Organizzata...</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://www.capricomics.com/neo/" target="_blank">
+                            <p class="sbTitle">CAPRI COMICS<br> </p>
+                            <p class="sbText">La direzione ostinata e contraria della Nuova Editoria Organizzata</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://ift.tt/HWqZonG" target="_blank">
+                            <p class="sbTitle">SPAZIO BIANCO <br></p>
+                            <p class="sbText">Nasce Nuova Editoria Organizzata, uno spazio libero per il fumetto</p>
+                        </a>
+                    </div>
+
+                    <div class="diconodinoiPost">
+                        <a class="sb" href="https://gliaudaci.blogspot.com/2022/11/nasce-neo-nuova-editoria-organizzata.html" target="_blank">
+                            <p class="sbTitle">GLI AUDACI <br> </p>
+                            <p class="sbText">Nasce NEO, Nuova Editoria Organizzata...</p>
+                        </a>
+                    </div>
+            </div>
+            
+        </div>
+
+        <script>
+
+            window.onresize = function(event) {
+                if (window.innerWidth >= 600) {
+                            window.location = "../index.html";
+                            
+                        }
+            };
+                
+        </script>
+
+
+    </body>
+</html>

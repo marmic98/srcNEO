@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="styleComicMobile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <title>Glumvasky</title>
+
+    </head>
+    <body>
+
+        
+
+        <div class="topnav">
+            <a class="logo" href="indexMobile.html" ><img src="imgs/logosmall.png" alt="logo"></a>
+            <!-- Navigation links (hidden by default) -->
+        
+            <div id="myLinks">
+              
+              <a class="mainLink" href="comics.html">Fumetti</a>
+                <a class="mainLink" href="chisiamoMobile.html">Chi siamo</a>
+                <a class="mainLink" href="contattimobile.html">Contatti</a>
+              
+              
+              <div class="social">
+                <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="imgs/ig20.png" alt="instagram"></a>
+                <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="imgs/tg20.png" alt="telegram"></a>
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="imgs/fb20.png" alt="facebook" ></a>
+                <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="imgs/tw20.png" alt="twitter" ></a>
+            </div>
+        
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        
+        <script>
+                /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+            function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+            }
+        </script>
+
+        <img class="main" src="imgs/glumMain.png" alt="">
+        <img class="title" src="imgs/glumTitle.png" alt="">
+
+        <h2>Glumvasky</h2>
+        <p class="genere">
+            2023 | Noir, Azione<br>
+        </p> 
+        <p class="autore">
+            scritto da <strong>Salvatore Vivenzio</strong> <br>
+            disegnato da <strong>Mattia Tassaro</strong> 
+        </p>
+        <p class="sottotitolo">
+            Siamo uomini buoni, che fanno cose cattive
+        </p>
+        <p class="sinossi">
+            Un “bad ass, old fashioned and brutal noir” che rispetta tutti i canoni del noir classico ma si ispira alle derivazioni più crude del genere, 
+            ad autori come James Ellroy, Richard Stark e Jim Thompson. Uomini buoni che fanno cose cattive, belle donne di cui non fidarsi, 
+            tutti ballano un tango con la morte per l’intera storia, tra misteri, sparatorie e un bambino scomparso, coscienti di non poter abbassare mai la guardia.
+        </p>
+
+        <div class="capitoli">
+            <div class="capitolo">
+                <a href="../showGlum.html">
+                    capitolo 1
+                </a>
+                
+            </div>
+
+            <div class="capitolo">
+                <a href="../showGlum2.html">
+                    capitolo 2
+                </a>
+                
+            </div>
+
+            <div class="capitolo">
+                <a href="../showGlum3.html">
+                    capitolo 3
+                </a>
+                
+            </div>
+
+            <div class="capitolo">
+                <a href="../showGlum4.html">
+                    capitolo 4
+                </a>
+                
+            </div>
+
+            <p style="color: #F5C525; margin: auto; margin-top: 40px; margin-bottom: 40px; font-size: 35px;">Glumvasky: Parte 2</p>
+
+            <div class="capitolo">
+                <a href="../showGlum5.html">
+                    capitolo 1
+                </a>
+                
+            </div>
+        </div>
+        <script>
+
+            window.onresize = function(event) {
+                if (window.innerWidth >= 500) {
+                            window.location = "../glum.html";
+                            
+                        }
+            };
+                
+        </script>
+    </body>
+</html>

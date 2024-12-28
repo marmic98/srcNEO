@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js" defer></script>
+    <title>Aggiungi nuovo fumetto</title>
+</head>
+<body>
+    <form>
+        <label for="title">Titolo</label><br>
+        <input type="text" id="title" ><br>
+
+        <label for="title">Sottotitolo</label><br>
+        <input type="text" id="subtitle" placeholder="facoltativo" ><br>
+
+        <label for="title">Descrizione</label><br>
+        <input type="text" id="description" ><br>
+
+        <label for="types">tipo</label><br>
+        <select id="types" name="types">
+            <option value="1">Serie Originale</option>
+            <option value="2">Antologie e Storie brevi</option>
+        </select> <br>
+
+        <label for="generi">generi</label><br>
+        <div id="generi"></div>
+
+        <label for="sceneggiatore">Sceneggiatore</label>
+        <select id="sceneggiatore" name="types">
+        </select>
+
+        <label for="disegnatore">Disegnatore</label>
+        <select id="disegnatore" name="types">
+        </select>
+
+        <label for="colorista">Colorista</label>
+        <select id="colorista" name="types">
+        </select> <br>
+
+        <label for="wpImg">Carica Sfondo</label><br>
+        <input type="file" id="wpImg" class="uploadImg"  accept=".png" ></div><br>
+
+        <label for="titleImg">Carica Immagine titolo</label><br>
+        <input type="file" id="titleImg" class="uploadImg" accept=".png" ></div><br>
+
+        <label for="bannerImg">Carica Banner per il catalogo</label><br>
+        <input type="file" id="bannerImg" class="uploadImg" accept=".png" ></div><br>
+
+        <label for="coverImg">Carica Copertina</label><br>
+        <input type="file" id="coverImg" class="uploadImg" accept=".png" ></div><br>
+
+        <button type="submit">Carica Fumetto</button>
+    </form>
+</body>
+
+<script>
+
+    function validateImg(input){
+        let file  = input.files[0]
+        if(file && file.type !== 'image/png'){
+            alert('formato sbagliato!')
+            input.value=""
+        }
+    }
+
+    document.querySelector('.uploadImg').addEventListener('change', function(e){
+        validateImg(this)        
+    })
+
+    document.querySelector('form').addEventListener('submit', async function(event){
+        event.preventDefault()
+        let title = document.getElementById('title')
+        let subtitle = document.getElementById('subtitle')
+        let descr = document.getElementById('description')
+        let types = document.getElementById('types')
+
+        let generi = document.querySelectorAll('input[type="checkbox"]')
+        let generiSelezionati = []
+        generi.forEach(genere => {
+            if(genere.checked){
+                generiSelezionati.push(genere.value)
+            }
+        })
+        
+        let sceneggiatori = document.getElementById('sceneggiatore')
+        let disegnatori = document.getElementById('disegnatore')
+        let coloristi = document.getElementById('colorista') 
+
+        let wpFile = document.getElementById('wpImg').files[0]
+        let titleFile = document.getElementById('titleImg').files[0]
+        let bannerFile = document.getElementById('bannerImg').files[0]
+        let coverFile = document.getElementById('coverImg').files[0]
+        
+        if(!wpFile || !titleFile || !bannerFile || !coverFile ||
+            title.value === "" || descr.value === "" || sceneggiatori.value ==="" ||
+            disegnatori.value === "" || generiSelezionati.length < 1
+        ){
+            alert('compila tutti i campi!')
+            event.preventDefault()
+        }else{
+            let formData = new FormData();
+            formData.append('title', title.value);
+            formData.append('subtitle', subtitle.value); 
+            formData.append('description', descr.value);
+            formData.append('type', types.value);
+            generiSelezionati.forEach(genre => formData.append('genres[]', genre));
+            formData.append('sceneggiatore', sceneggiatori.value)
+            formData.append('disegnatore', sceneggiatori.value)
+            formData.append('colorista', coloristi.value)
+            formData.append('imgs', wpFile)
+            formData.append('imgs', titleFile)
+            formData.append('imgs', bannerFile)
+            formData.append('imgs', coverFile)
+            
+            let fetchURL = 'http://127.0.0.1:3000/fumetto/save/add';
+            try{
+                let response = await fetch(fetchURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                if(response.ok){
+                    window.location.href="http://127.0.0.1:5500/comics.html"    
+                }
+            }catch(error){
+                console.log("errore: " + error)
+            }
+        }       
+    })
+
+    async function uploadFumetto(capFile, anteFile){    
+        
+    }
+
+    async function render() {
+        try{
+            let fetchGeneriUrl = 'http://127.0.0.1:3000/generi'
+            let generiResponse = await fetch(fetchGeneriUrl)
+            if(generiResponse.ok){
+                let generi = await generiResponse.json()
+                
+                generi.forEach(genere => {
+                    let checkGenere = document.createElement('input')
+                    checkGenere.setAttribute("type", "checkbox")
+                    checkGenere.value = genere.id
+                    checkGenere.name = genere.name
+                    document.getElementById('generi').appendChild(checkGenere)
+
+                    let labelGenere = document.createElement('label')
+                    labelGenere.setAttribute("for", genere.id)
+                    labelGenere.innerHTML = genere.name
+                    document.getElementById('generi').appendChild(labelGenere)
+                });
+
+            }
+                
+        }catch(e){
+            console.error("errore fetch: "+e)
+        }
+
+        try{
+            let fetchAutoriUrl = 'http://127.0.0.1:3000/author'
+            let autoriResponse = await fetch(fetchAutoriUrl)
+            let autori = ""
+
+            let sceneggiatori = document.getElementById('sceneggiatore')
+            let disegnatori = document.getElementById('disegnatore')
+            let coloristi = document.getElementById('colorista') 
+
+            sceneggiatori.appendChild(document.createElement('option'))
+            disegnatori.appendChild(document.createElement('option'))
+            coloristi.appendChild(document.createElement('option'))
+
+            if(autoriResponse.ok){
+                autori = await autoriResponse.json()
+            }
+
+            autori.forEach(autore => {
+                    let autoreOption = document.createElement('option')
+                    autoreOption.value = autore.id
+                    autoreOption.name = autore.surname
+                    autoreOption.innerHTML = autore.name+" "+autore.surname
+                    sceneggiatori.appendChild(autoreOption)
+                });
+                
+            autori.forEach(autore => {
+                let autoreOption = document.createElement('option')
+                autoreOption.value = autore.id
+                autoreOption.name = autore.surname
+                autoreOption.innerHTML = autore.name+" "+autore.surname
+                disegnatori.appendChild(autoreOption)
+            });
+            
+            autori.forEach(autore => {
+                let autoreOption = document.createElement('option')
+                autoreOption.value = autore.id
+                autoreOption.name = autore.surname
+                autoreOption.innerHTML = autore.name+" "+autore.surname
+                coloristi.appendChild(autoreOption)
+            });
+
+        }catch(e){
+            console.error("errore fetch: "+e)
+        }
+    }
+    
+    if(sessionStorage.getItem("token") == null || isTokenExpired(sessionStorage.getItem("token"))){
+        window.location.href="/index.html";
+    }
+    else{
+        render()
+    }
+    
+</script>
+</html>

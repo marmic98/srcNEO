@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin login</title>
+</head>
+<body>
+    <form>
+        <label for="username">Utente</label>
+        <input id="username" type="text"><br>
+        <label for="pwd">Password</label>
+        <input id="pwd" type="password"><br>
+        <button id="loginButton" type="submit">Login!</button><br>
+        <button id="logoutButton" type="button">Logout!</button>
+    </form>
+</body>
+
+<script>
+    
+    document.querySelector("form").addEventListener('submit', async function(event){
+        event.preventDefault();
+        let username = document.getElementById('username').value;
+        let pwd = document.getElementById('pwd').value;
+        if(sessionStorage.getItem("token") != null){
+            alert("gia loggato")
+        }
+        else if(username == '' || pwd == ''){
+            alert("inserisci nome utente e password!")
+            event.preventDefault();
+        }
+        else if(sessionStorage.getItem("token") == null){
+
+            let data = {
+                "us": username,
+                "psw": pwd
+            }
+            let fetchURL = 'http://127.0.0.1:3000/login/';
+            try{
+                let response = await fetch(fetchURL, {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json",},
+                    body: JSON.stringify(data)
+                })
+                if(response.ok){
+                    let responseData = await response.json()
+                    let token = responseData.token;
+                    sessionStorage.setItem("token", token)
+                    window.location.href="http://127.0.0.1:5500/index.html"    
+                }
+            }catch(error){
+                alert("utente o password errati")
+                console.log("errore: " + error)
+            }
+        }
+    });
+
+    document.getElementById('logoutButton').addEventListener("click", function(event){
+        if(sessionStorage.getItem("token") != null){
+            sessionStorage.removeItem("token")
+            alert("Logout!")
+        }     
+        else{
+            console.log(sessionStorage.getItem("token"))
+            alert("logout gia fatto")
+        }
+            
+    })
+
+</script>
+</html>

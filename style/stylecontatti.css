@@ -1,0 +1,235 @@
+/* main color: #f5c525 */
+/* font-family: 'Bebas Neue', cursive;*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
+
+body{
+    font-family: 'Bebas Neue';
+    text-decoration: none;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.nav-bar{
+    position: fixed;
+    background-color: black;
+    display: flex;
+    height: 128px;
+    width: 100%;
+    align-items: center;
+}
+
+.logo{
+    
+    align-items: center;
+    margin-left: 17.6%;
+    width: 14%;
+    height: 77px;
+}
+
+.nav-button, .navbutton:visited{
+    text-decoration: none;
+    
+    width: 20%;
+    
+    font-size: 24px;
+    
+    font-family: 'Bebas Neue';
+    
+    align-items: center;
+    
+    
+    text-align: center;
+    
+    color: #F5C525;
+}
+
+
+@media screen and (max-width: 1500px) {
+    .nav-button, .navbutton:visited{
+        text-decoration: none;
+        
+        width: 20%;
+        
+        font-size: 16px;
+        
+        font-family: 'Bebas Neue';
+        
+        align-items: center;
+        
+        
+        text-align: center;
+        
+        color: #F5C525;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-button, .navbutton:visited{
+        text-decoration: none;
+        
+        width: 20%;
+        
+        font-size: 12px;
+        
+        font-family: 'Bebas Neue';
+        
+        align-items: center;
+        
+        
+        text-align: center;
+        
+        color: #F5C525;
+    }
+}
+
+.nav-button:last-child{
+    margin-right: 7.7%;
+}
+
+.nav-button:hover{
+    background-color: #f5c525;
+    color: black;
+}
+
+.buttonCont{
+    
+    display: flex;
+    align-items: center;
+    margin-left: 26.5%;
+    margin-right: 17.6%;
+    width: 24.3%;
+    /*467*/
+}
+
+.social{
+   /*170*/
+    margin-left: 7.71%;
+    display: flex;
+    align-items: center;
+    width: 36%;
+    
+    
+}
+.social-icon{
+    margin: 1.18%;
+    
+    height: auto;
+    width: 25%;
+}
+
+.container{
+    background-color: #313131;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 1080px;
+}
+
+.contatti{
+    /*1229*/
+    display: flex;
+    width: 64%;
+    height: 615px;
+}
+
+.sidebar{
+    background-color: #F5C525;
+    width: 23%;
+}
+
+.info{
+    /*947*/
+    background-color: black;
+    width: 77%;
+}
+
+.info-header{
+    /*203+119+376 = 698*/
+    display: flex;
+    width: 73.7%;
+    height: 42px;
+    margin: 8.1%;
+    align-items: center;
+}
+
+.info-header-title{
+    width: 29%;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vw;
+    line-height: 44px;
+    margin-right: 4.3%; 
+    color: #FFFFFF;
+}
+
+.info-header img{
+    width: 10%;
+    margin-left: 10px;
+}
+
+.mailtext{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 24px;
+    margin-left: 4.3%;
+
+    color: #F5C525;
+
+}
+
+
+
+.infotext {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 8.1%;
+    margin-right: 21.9%;
+    color: #FFFFFF;
+    text-align: justify;
+}
+
+.infolist{
+    list-style-position: inside;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 8.1%;
+    margin-right: 21.9%;
+    color: #FFFFFF;
+
+}
+
+.footer{
+    background-color: #F5C525;
+    height: 90px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+   
+}

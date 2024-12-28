@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Capitolo 1</title>
+
+    <style>
+    * {
+        background-color: white;
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow-y: scroll;
+    }
+
+    body::-webkit-scrollbar{
+        display: none;
+    }   
+
+    #arrows{
+        display: flex;
+        justify-content:space-evenly;
+        padding-bottom: 60px;
+    }
+
+    </style>
+
+</head>
+
+<body oncontextmenu="return false;">
+
+    <img id='currentCap' alt="cap" style = "width:100%;" draggable="false">
+    <div id="arrows">
+        <a id= "leftArrow" class="arrow">Indietro</a>
+        <a id="backToComic" class="navigateButton">Torna al fumetto</a>
+        <a id= "rightArrow" class="arrow">Avanti</a>
+    </div>
+</body>
+
+<script>
+    function renderCap(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        let cap = parseInt(urlParams.get('cap'));
+        let chapterNumber = parseInt(urlParams.get('cn'));
+        
+        getCap(id, cap)
+        document.getElementById('backToComic').href = "comic.html?id="+id; 
+        document.title = 'Capitolo '+cap;
+
+        let next = cap+1;
+        let prev = cap-1;
+
+        if(cap === chapterNumber){
+            document.getElementById('rightArrow').style.display = 'none'
+            document.getElementById('leftArrow').href="show.html?id="+id+"&cap="+(prev)+"&cn="+chapterNumber
+        }   
+        if(cap === 1){
+            document.getElementById('leftArrow').style.display = 'none'
+            document.getElementById('rightArrow').href="show.html?id="+id+"&cap="+(next)+"&cn="+chapterNumber
+        }
+        else{
+            document.getElementById('leftArrow').href="show.html?id="+id+"&cap="+(prev)+"&cn="+chapterNumber
+            document.getElementById('rightArrow').href="show.html?id="+id+"&cap="+(next)+"&cn="+chapterNumber
+        }
+    }
+
+    async function getCap(id, cap){
+        let imageURL = 'http://127.0.0.1:3000/fumetto/image/fumetti/'+id+'/'+cap+'cap.png'
+        let responseCap = await fetch(imageURL)
+        if(responseCap.ok){
+            const blob = await responseCap.blob()
+            const imageObjectURL = URL.createObjectURL(blob);
+            document.getElementById('currentCap').src = imageObjectURL    
+        }
+    }
+
+    renderCap();
+    
+</script>
+</html>

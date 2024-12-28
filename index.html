@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <title>Nuova Editoria Organizzata</title>
+    </head>
+    <body>
+        <script>
+            if (window.innerWidth < 600) {
+            window.location = "mobile/indexMobile.html";
+}
+        </script>
+   
+
+
+        <header class="header-style" href="index.html">
+            <img  class ="header-img"src="imgs/banner.png" alt="home logo">
+        </header>
+
+        <div class="nav-bar">
+            
+            <div class="buttonCont">
+                <a class="nav-button" href="chisiamo.html">
+                    Chi siamo
+                </a>
+                <a class="nav-button" href="contatti.html">
+                    Contatti
+                </a>
+                <a class="nav-button" href="comics.html">
+                    Fumetti
+                </a>
+                
+            
+                <div class="social">
+                    <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="../imgs/igblack.png" alt="instagram"></a>
+                    <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="../imgs/tlgblack.png" alt="telegram"></a>
+                    <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="../imgs/fbblack.png" alt="facebook" ></a>
+                    <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="../imgs/twblack.png" alt="twitter" ></a>
+                </div>
+
+            </div>
+        </div>
+        
+    <div class="sliderCont">
+        <!-- Image Slider Start -->
+        <div class="slider">
+            <div class="slides">
+            <!-- Radio Button Start  -->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            
+            <!-- Radio Button Close  -->
+
+            <!-- Slide Image Start -->
+            <div class="slide first">
+                <img src="imgs/slide1.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="imgs/slide2.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="imgs/slide3.png" alt="">
+            </div>
+            <!-- Slide Image Close -->
+
+            <!-- Automatic Navigation Start -->
+            <div class="navigation-auto">
+                <div class="auto-btn-1"></div>
+                <div class="auto-btn-2"></div>
+                <div class="auto-btn-3"></div>
+                
+            </div>
+            <!-- Automatic Navigation Close -->
+            </div>
+            
+            <!-- Mannual Navigation Start -->
+            <div class="navigation-mannual">
+                <label for="radio1" class="mannual-btn"></label>
+                <label for="radio2" class="mannual-btn"></label>
+                <label for="radio3" class="mannual-btn"></label>
+                
+            </div>
+            <!-- Mannual Navigation Close -->
+        </div>
+        <!-- Image Slider Close -->
+    </div>
+  <script>
+    var counter = 1;
+    setInterval(function()  {
+      document.getElementById('radio'+ counter).checked = true;
+      counter++; 
+
+      if(counter>3){
+        counter=1
+      }
+
+    }, 5000);
+  </script>
+
+        <div class="main">
+
+            <div class="sidebar">
+                <h2 class="novita-title">Dicono di noi</h2>
+                <img class="line" src="imgs/line1.png" alt="">
+                <div class="sidebar-elements">
+                    
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">Il Pappagallo<br></p>
+                            <p class="sbText">Malombra di Salvatore Vivenzio e Arianna Melone</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">CorriereNerd.it<br></p>
+                            <p class="sbText">Malombra di Salvatore Vivenzio e Arianna Melone</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://loscarabocchiatore.it/blog/nuova-editoria-organizzata-e-lieta-di-presentare-malombra/?fbclid=IwAR359DmrizkYsYgrrt6tbAq2GKD2BpMW9EQE-Kc8vNr3T48ENWqOKOUnhfc"  target="_blank">
+                            <p class="sbTitle">LO Scarabocchiatore<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata è lieta di presentare “Malombra”, - Associazione Lo Scarabocchiatore</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.nerdpool.it/2023/05/08/nuova-editoria-organizzata-presenta-malombra/" target="_blank">
+                            <p class="sbTitle">Nerd Pool<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata presenta: "Malombra"</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.ilmattino.it/avellino/vivenzio_superpoteri_senza_eroi-7370086.html"  target="_blank">
+                            <p class="sbTitle">IL MATTINO<br></p>
+                            <p class="sbText">Vivenzio, superpoteri senza eroi</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.ilpappagallo.info/news/glumvasky-il-kickstarter-della-nuova-editoria-organizzata?fbclid=IwAR0eDKW41lZTrJ-D8Ky0LK0NsSWoKPD2iuGaydl5Lr0qVcbPqpLsw8Fugpk#.ZDWLlEezC_U.facebook"  target="_blank">
+                            <p class="sbTitle">Il Pappagallo<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata presenta “Glumvasky: Good Men Bad Things #1” - Associazione Lo Scarabocchiatore</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://loscarabocchiatore.it/blog/nuova-editoria-organizzata-presenta-glumvasky-good-men-bad-things-1/"  target="_blank">
+                            <p class="sbTitle">LO Scarabocchiatore<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata presenta “Glumvasky: Good Men Bad Things #1” - Associazione Lo Scarabocchiatore</p>
+                        </a>
+                    </div>
+                    
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://gliaudaci.blogspot.com/2023/04/nuova-editoria-organizzata-lancia-il.html"  target="_blank">
+                            <p class="sbTitle">GLI AUDACI<br></p>
+                            <p class="sbText">In occasione della stampa della prima tiratura di “Glumvasky – Good Men Bad Things”, NEO organizza il suo primo Kickstarter Nuova Editoria O...</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://t.me/nuovaeditoriaorganizzata/41"  target="_blank">
+                            <p class="sbTitle">IL MATTINO<br></p>
+                            <p class="sbText">Nuova Editoria Organizzata sceglie una direzione giusta</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.nerdpool.it/2022/11/25/nuova-editoria-organizzata/" target="_blank">
+                            <p class="sbTitle">Nerd Pool<br></p>
+                            <p class="sbText">Nasce NEO, Nuova Editoria Organizzata...</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://www.capricomics.com/neo/" target="_blank">
+                            <p class="sbTitle">CAPRI COMICS<br> </p>
+                            <p class="sbText">La direzione ostinata e contraria della Nuova Editoria Organizzata</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://ift.tt/HWqZonG" target="_blank">
+                            <p class="sbTitle">SPAZIO BIANCO <br></p>
+                            <p class="sbText">Nasce Nuova Editoria Organizzata, uno spazio libero per il fumetto</p>
+                        </a>
+                    </div>
+
+                    <div class="sidebar-element">
+                        <a class="sb" href="https://gliaudaci.blogspot.com/2022/11/nasce-neo-nuova-editoria-organizzata.html" target="_blank">
+                            <p class="sbTitle">GLI AUDACI <br> </p>
+                            <p class="sbText">Nasce NEO, Nuova Editoria Organizzata...</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="showcases">
+                <div class="showcase">
+                    <h2 class="novita-title">Novità</h2>
+                    <img class="line" src="imgs/line1.png" alt="">
+
+                    <div class="showcase-elements" id="originals">
+                    </div>
+                </div>
+                    
+                <div class="showcase">
+                    <h2 class="novita-title">Antologie e Storie brevi</h2>
+                    <img class="line" src="imgs/line1.png" alt="">
+
+                    <div class="showcase-elements" id="antologie">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+        <div class="footer">
+            <p>Copyright © 2023 Nuova Editoria Organizzata<br>
+            Designed by Michele Martino + Mattia Tassaro</p>
+        </div>
+
+
+        
+
+        <script>
+            window.onresize = function(event) {
+                if (window.innerWidth < 600) {
+                    window.location = "mobile/indexMobile.html";            
+                }
+            };                
+        </script>
+
+        <script>
+            async function getFumetti(){
+                try{
+                    let response = await fetch('http://127.0.0.1:3000/fumetto/')
+                    if(response.ok){
+                        return await response.json();
+                    }
+                }catch(err){
+                    console.log("si è verificato il seguente errore: "+err);
+                    return err;
+                }
+            }
+
+            async function showComics(fumetti){
+                for (let fumetto of fumetti) {
+                    imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'Cover.png'
+                    imageResponse = await fetch(imageURL)
+                    let imageBanner = document.createElement('img')
+                    if(imageResponse.ok){
+                        const blob = await imageResponse.blob();
+                        const imageObjectURL = URL.createObjectURL(blob);
+                        imageBanner.src = URL.createObjectURL(blob);
+                    }
+
+                    /*<a class="showcase-element" href="ungiornoemezzocirca.html">
+                            <img src="imgs/ugemcMain.png" alt="comic">
+                            <p class="title">
+                                Un giorno e mezzo circa
+                            </p>
+                    </a>*/
+
+                    let comic = document.createElement('a')
+                    
+                    comic.classList.add('showcase-element');
+                    comic.id = fumetto.id;
+                    comic.href = "comic.html?id="+fumetto.id; 
+                    comic.appendChild(imageBanner)
+
+                    let title = document.createElement('p');
+                    title.classList.add('title');
+                    title.innerHTML = fumetto.title; 
+                    comic.appendChild(title);
+
+
+                    if(fumetto.type === 1)
+                        document.getElementById('originals').appendChild(comic)
+                    else
+                        document.getElementById('antologie').appendChild(comic) 
+                };
+            }
+            
+
+            async function render(){
+                const fumetti = await getFumetti()
+                showComics(fumetti);
+            }
+
+            render()
+            
+        </script>
+
+    </body>
+</html>

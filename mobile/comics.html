@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="styleComicsMobile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <title>Fumetti</title>
+
+    </head>
+    <body>
+
+        
+
+        <div class="topnav">
+            <a class="logo" href="indexMobile.html" ><img src="imgs/logosmall.png" alt="logo"></a>
+            <!-- Navigation links (hidden by default) -->
+        
+            <div id="myLinks">
+                <a class="mainLink" href="comics.html">Fumetti</a>
+                <a class="mainLink" href="chisiamoMobile.html">Chi siamo</a>
+                <a class="mainLink" href="contattimobile.html">Contatti</a>
+              
+              
+              <div class="social">
+                <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="imgs/ig20.png" alt="instagram"></a>
+                <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="imgs/tg20.png" alt="telegram"></a>
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="imgs/fb20.png" alt="facebook" ></a>
+                <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="imgs/tw20.png" alt="twitter" ></a>
+            </div>
+        
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        
+          <script>
+                    /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+                function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                }
+          </script>
+
+        <div class="sliderCont">
+            <!-- Image Slider Start -->
+            <div class="slider">
+                <div class="slides">
+                <!-- Radio Button Start  -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                
+                <!-- Radio Button Close  -->
+    
+                <!-- Slide Image Start -->
+                <div class="slide first">
+                    <img src="imgs/slide1.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="imgs/slide2.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="imgs/slide3.png" alt="">
+                </div>
+                <!-- Slide Image Close -->
+    
+                <!-- Automatic Navigation Start -->
+                <div class="navigation-auto">
+                    <div class="auto-btn-1"></div>
+                    <div class="auto-btn-2"></div>
+                    <div class="auto-btn-3"></div>
+                    
+                </div>
+                <!-- Automatic Navigation Close -->
+                </div>
+                
+                <!-- Mannual Navigation Start -->
+                <div class="navigation-mannual">
+                    <label for="radio1" class="mannual-btn"></label>
+                    <label for="radio2" class="mannual-btn"></label>
+                    <label for="radio3" class="mannual-btn"></label>
+                    
+                </div>
+                <!-- Mannual Navigation Close -->
+            </div>
+            <!-- Image Slider Close -->
+        </div>
+        
+        <script>
+        var counter = 1;
+        setInterval(function()  {
+          document.getElementById('radio'+ counter).checked = true;
+          counter++; 
+    
+          if(counter>3){
+            counter=1
+          }
+    
+        }, 5000);
+        </script>
+
+        <h2>I nostri fumetti</h2>
+        <div class="fumetti">
+
+            <div class="fumetto-dark">
+                <a href="ungiornoemezzocirca.html">
+                    <img src="imgs/bannerugemc.png" alt="">
+                    <h6>Un giorno e mezzo circa</h6>
+                    <p>Gaia Motagnoli</p>
+                </a>
+                
+            </div>
+
+            <div class="fumetto-dark">
+                <a href="lavanda.html">
+                    <img src="imgs/bannerLavandaMobile.png" alt="">
+                    <h6>Lavanda</h6>
+                    <p>Salvatore Vivenzio<br>Michele Monte</p>
+                </a>
+                
+            </div>
+
+            <div class="fumetto">
+                <a href="interrogatore.html">
+                    <img src="imgs/bannerInterrogatore.png" alt="">
+                    <h6>L'Interrogatore</h6>
+                    <p>Salvatore Vivenzio<br>Silvia Alcidi</p>
+                </a>
+                
+            </div>
+
+            <div class="fumetto">
+                <a href="malombra.html">
+                    <img src="imgs/bannerMO.png" alt="">
+                    <h6>Malombra</h6>
+                    <p>Salvatore Vivenzio<br>Arianna Melone</p>
+                </a>
+                
+            </div>
+
+            <div class="fumetto">
+                <a href="glumMobile.html">
+                    <img src="imgs/glumBanner.png" alt="">
+                    <h6>Glumvasky</h6>
+                    <p>Salvatore Vivenzio<br>Mattia Tassaro</p>
+                </a>
+                
+            </div>
+
+        
+            <div class="fumetto">
+                <a href="comic.html">
+                    <img src="imgs/dirGiustBanner.png" alt="">
+                    <h6>Una direzione giusta</h6>
+                    <p>Michele Monte</p>
+                </a>
+                
+            </div>
+
+            
+        </div>
+        <script>
+
+            window.onresize = function(event) {
+                if (window.innerWidth >= 500) {
+                    window.location = "../comics.html";   
+                }
+            };
+                
+        </script>
+    </body>
+</html>

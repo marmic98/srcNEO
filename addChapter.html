@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js" defer></script>
+    <title>Aggiungi nuovo capitolo</title>
+</head>
+<body>
+    <form>
+        <input type="file" class="capUp" accept=".png" >Carica Capitolo</div>
+        <input type="file" class="anteUp" accept=".png">Carica anteprima</div>
+        <button type="submit">Aggiungi capitolo</button>
+    </form>
+</body>
+
+<script>
+    if(sessionStorage.getItem("token") == null){
+        window.location.href="/index.html";
+    }
+
+    function validateImg(input){
+        let file  = input.files[0]
+        if(file && file.type !== 'image/png'){
+            alert('formato sbagliato!')
+            input.value=""
+        }
+    }
+
+    document.querySelector('.capUp').addEventListener('change', function(e){
+        validateImg(this)        
+    })
+    document.querySelector('.anteUp').addEventListener('change', function(e){
+        validateImg(this)        
+    })
+
+    document.querySelector('form').addEventListener('submit', async function(event){
+        event.preventDefault()
+        let cap = document.querySelector('.capUp')
+        let ante = document.querySelector('.anteUp')
+        let capFile = cap.files[0]
+        let anteFile = ante.files[0] 
+        if(cap.value === "" || ante.value === ""){
+            alert('aggiungi png')
+            event.preventDefault()
+        }else{
+            let esitoIncremento = await incrementaCapitolo(capFile, anteFile)
+            if(esitoIncremento){
+                window.location.href="http://127.0.0.1:5500/comic.html?id="+esitoIncremento
+            }
+        }       
+    })
+
+    async function incrementaCapitolo(capFile, anteFile){    
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        let formData = new FormData();
+        formData.append('id', id);
+        formData.append('files', capFile); 
+        formData.append('files', anteFile); 
+        
+        let fetchURL = 'http://127.0.0.1:3000/fumetto/addChapter';
+        try{
+            let response = await fetch(fetchURL, {
+                method: 'POST',
+                //qua niente header perchè formdata è fatto apposta
+                body: formData
+            })
+            if(response.ok){
+                return id
+            }
+        }catch(error){
+            console.log("errore: " + error)
+        }
+    }
+</script>
+</html>

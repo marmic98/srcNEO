@@ -1,0 +1,225 @@
+/* main color: #f5c525 */
+/* font-family: 'Bebas Neue', cursive;*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+    
+}
+
+body{
+    font-family: 'Bebas Neue';
+    text-decoration: none;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    background-color:  #1A1A1A;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.nav-bar{
+    background-color: black;
+    display: flex;
+    height: 128px;
+    width: 100%;
+    align-items: center;
+}
+
+.logo{
+    
+    align-items: center;
+    margin-left: 17.6%;
+    width: 14%;
+    height: 77px;
+}
+
+.nav-button, .navbutton:visited{
+    text-decoration: none;
+    
+    width: 20%;
+    
+    font-size: 24px;
+    
+    font-family: 'Bebas Neue';
+    
+    align-items: center;
+    
+    
+    text-align: center;
+    
+    color: #F5C525;
+}
+
+@media screen and (max-width: 1500px) {
+    .nav-button, .navbutton:visited{
+        text-decoration: none;
+        
+        width: 20%;
+        
+        font-size: 16px;
+        
+        font-family: 'Bebas Neue';
+        
+        align-items: center;
+        
+        
+        text-align: center;
+        
+        color: #F5C525;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-button, .navbutton:visited{
+        text-decoration: none;
+        
+        width: 20%;
+        
+        font-size: 12px;
+        
+        font-family: 'Bebas Neue';
+        
+        align-items: center;
+        
+        
+        text-align: center;
+        
+        color: #F5C525;
+    }
+}
+
+.nav-button:last-child{
+    margin-right: 7.7%;
+}
+
+.nav-button:hover{
+    background-color: #f5c525;
+    color: black;
+}
+
+.buttonCont{
+    
+    display: flex;
+    align-items: center;
+    margin-left: 26.5%;
+    margin-right: 17.6%;
+    width: 24.3%;
+    /*467*/
+}
+
+.social{
+   /*170*/
+    margin-left: 7.71%;
+    display: flex;
+    align-items: center;
+    width: 36%;
+    
+    
+}
+.social-icon{
+    margin: 1.18%;
+    
+    height: auto;
+    width: 25%;
+}
+
+.container { 
+    background-image: url('/imgs/ksbanner.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size:cover;
+    overflow: hidden;
+    width:  100%;
+    height: 800px;
+    
+    display: flex;
+  }
+
+  .left{
+    width: 50%;
+  }
+
+  .title{
+    
+    font-family: 'Montserrat';
+    font-size: 20px;
+    
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    margin-left: 9%;
+    margin-bottom: 25px;
+  }
+
+  .left p{
+    margin-left: 9%;
+    font-family: 'Montserrat';
+    
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    width: 70%;
+  }
+
+  .right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+
+  .left img {
+    margin-left: 23%;
+  }
+
+  .buttonks{
+    width: 50%;
+  }
+  .buttonks div{
+    color: black;
+    border: none;
+    font-family: 'Bebas Neue', cursive;
+    margin-top: 50px;
+    background-color: #F5C525;
+    
+    height: 70px;
+    border-radius: 25px;
+    text-align: center;
+    
+    text-align: center;
+    font-size: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  video{
+    margin-top: 30px;
+  }
+
+.descr{
+    font-family: Montserrat;
+    background: #000000;
+    width: 50%;
+    text-align: center;
+    color: #F5C525;
+}
+
+
+

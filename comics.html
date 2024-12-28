@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="style/comicstyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        <title>I nostri Fumetti</title>
+    </head>
+    <body>
+        <div class="nav-bar">
+        
+            <div class="logo">
+                <a href="index.html"><img src="imgs/totalLogo.png" alt="cover"></a>
+            </div>
+            <div class="buttonCont">
+                <a class="nav-button" href="chisiamo.html">
+                    Chi siamo
+                </a>
+                <a class="nav-button" href="contatti.html">
+                    Contatti
+                </a>
+                <a class="nav-button" href="comics.html">
+                    Fumetti
+                </a>        
+            
+                <div class="social">
+                    <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="../imgs/ig.png" alt="instagram"></a>
+                    <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="../imgs/tlg.png" alt="telegram"></a>
+                    <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="../imgs/fb.png" alt="facebook" ></a>
+                    <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="../imgs/tw.png" alt="twitter" ></a>
+                </div>
+    
+            </div>
+        </div>
+        
+        <img class="banner" src="imgs/bannerComics.png" alt="bannerComics">
+        
+        <h1 class="cat-title">Serie Originali</h1>
+        <img class="line" src="imgs/line1.png" alt="">
+        <div class="comicCont" id="originals"></div>
+
+        <h1 class="cat-title">Antologie e Storie brevi</h1>
+        <img class="line" src="imgs/line1.png" alt="">
+        <div class="comicCont" id="antologie">
+        </div>
+
+        <div class="footer">
+            <p>Copyright © 2023 Nuova Editoria Organizzata<br>
+            Designed by Michele Martino + Mattia Tassaro</p>
+        </div>
+        <script>
+
+            window.onresize = function(event) {
+            if (window.innerWidth < 600) {
+                window.location = "mobile/comics.html";
+            }
+            };
+
+        </script>
+
+        <script>
+            async function getFumetti(){
+                try{
+                    let response = await fetch('http://127.0.0.1:3000/fumetto/')
+                    if(response.ok){
+                        return await response.json();
+                    }
+                }catch(err){
+                    console.log("si è verificato il seguente errore: "+err);
+                    return err;
+                }
+            }
+
+            async function showComics(fumetti){
+                for (let fumetto of fumetti) {
+                    imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'Banner.png'
+                    imageResponse = await fetch(imageURL)
+                    let imageBanner = document.createElement('img')
+                    if(imageResponse.ok){
+                        const blob = await imageResponse.blob();
+                        const imageObjectURL = URL.createObjectURL(blob);
+                        imageBanner.src = URL.createObjectURL(blob);
+                    }
+ 
+                    let comic = document.createElement('a')
+                    
+                    comic.classList.add('comic');
+                    comic.id = fumetto.id;
+                    comic.href = "comic.html?id="+fumetto.id; 
+                    comic.appendChild(imageBanner)
+
+                    if(fumetto.type === 1)
+                        document.getElementById('originals').appendChild(comic)
+                    else
+                        document.getElementById('antologie').appendChild(comic) 
+                };
+            }
+            
+
+            async function render(){
+                const fumetti = await getFumetti()
+                showComics(fumetti);
+            }
+
+            render()
+            
+        </script>
+    </body>
+</html>

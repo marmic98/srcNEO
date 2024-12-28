@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="style/styleShowComic.css">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <script src="scripts.js" defer></script>
+        <title></title>
+    </head>
+<body>
+
+
+    
+    <div class="nav-bar">
+        
+        <div class="logo">
+            <a href="index.html"><img src="imgs/totalLogo.png" alt="cover"></a>
+        </div>
+        
+        <div class="buttonCont">
+            <a class="nav-button" href="chisiamo.html">
+                Chi siamo
+            </a>
+            <a class="nav-button" href="contatti.html">
+                Contatti
+            </a>
+            <a class="nav-button" href="comics.html">
+                Fumetti
+            </a>        
+        
+            <div class="social">
+                <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="../imgs/ig.png" alt="instagram"></a>
+                <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="../imgs/tlg.png" alt="telegram"></a>
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="../imgs/fb.png" alt="facebook" ></a>
+                <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="../imgs/tw.png" alt="twitter" ></a>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="loading-screen">
+        <div id="spinner"></div>
+    </div>
+    
+
+
+    <div class="bgCont">
+        
+        <div class="panoramic">
+            <img  class="cover-style" alt="cover">
+
+            <div class="info">
+                <img  class="title-style" alt="title">
+                <div class="sub">
+                    <p class="gen"></p>
+                    <p class="aut"></p>
+                </div>  
+
+                <div class="descrTextCont">
+                    <p class="titleDescr"></p>
+                    <p class="textDescr"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="episodes">
+
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <p>Copyright © 2023 Nuova Editoria Organizzata<br>
+        Designed by Michele Martino + Mattia Tassaro</p>
+    </div>
+
+    <script>
+        
+    
+        async function showEpisodes(fumetto){
+            
+            document.title = fumetto.title;
+            let cn = fumetto.chapterNumber
+            let id = fumetto.id
+
+            imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'Cover.png'
+            imageResponse = await fetch(imageURL)
+            if(imageResponse.ok){
+                const blob = await imageResponse.blob();
+                const imageObjectURL = URL.createObjectURL(blob);
+                document.querySelector(".cover-style").src = URL.createObjectURL(blob);
+            }
+
+            imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'Title.png'
+            imageResponse = await fetch(imageURL)
+            if(imageResponse.ok){
+                const blob = await imageResponse.blob();
+                const imageObjectURL = URL.createObjectURL(blob);
+                document.querySelector(".title-style").src = URL.createObjectURL(blob);
+            }
+
+            imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'WP.png'
+            imageResponse = await fetch(imageURL)
+            if(imageResponse.ok){
+                const blob = await imageResponse.blob();
+                const imageObjectURL = URL.createObjectURL(blob);
+                document.querySelector(".bgCont").style.backgroundImage = imageObjectURL;
+                document.querySelector(".bgCont").style.backgroundRepeat = "no-repeat"
+                document.querySelector(".bgCont").style.backgroundSize = "cover"
+                document.querySelector(".bgCont").style.width =  "100%"        
+            }
+
+            imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'WP.png'
+                imageResponse = await fetch(imageURL)
+                if(imageResponse.ok){
+                    const blob = await imageResponse.blob();
+                    const imageObjectURL = URL.createObjectURL(blob);
+                    document.querySelector(".bgCont").style.backgroundImage = `url('${imageObjectURL}')`;
+                }
+                
+                
+                document.querySelector(".bgCont").style.backgroundRepeat = "no-repeat"
+                //document.querySelector(".bgCont").style.backgroundAttachment = "scroll"
+                document.querySelector(".bgCont").style.backgroundSize = "cover"
+                //document.querySelector(".bgCont").style.overflow = "hidden"
+                document.querySelector(".bgCont").style.width =  "100%"
+                //document.querySelector(".bgCont").style.height = "1080px"
+
+                document.getElementById('spinner').style.display = 'none';
+                document.getElementById('loading-screen').style.display = 'none';
+                document.querySelector('.footer').style.display = 'flex';
+            for (let i = 1; i <= cn; i++){
+                let episode = document.createElement('div');
+                episode.classList.add("episode");
+                episode.id = i;
+                let imageURL = 'http://127.0.0.1:3000/fumetto/image/'+fumetto.id+'ante'+(i)+'.png'
+                let imageResponse = await fetch(imageURL)
+                if(imageResponse.ok){
+                    const blob = await imageResponse.blob();
+                    const imageObjectURL = URL.createObjectURL(blob);
+                    episode.style.backgroundImage = `url('${imageObjectURL}')`;
+                }
+                 
+                let anchorEpisode = document.createElement('a')
+                anchorEpisode.classList.add("episode-text");
+                anchorEpisode.href = "show.html?id="+fumetto.id+"&cap="+(i)+"&cn="+fumetto.chapterNumber
+                
+                let pEpisode = document.createElement('p')
+                pEpisode.textContent = "episodio " + i;
+
+                anchorEpisode.appendChild(pEpisode);
+                episode.appendChild(anchorEpisode);
+                document.querySelector(".episodes").appendChild(episode);
+
+                
+            }
+
+            if(fumetto.subtitle){
+                document.querySelector(".titleDescr").innerHTML = fumetto.subtitle
+            }    
+
+            document.querySelector(".textDescr").innerHTML = fumetto.description
+
+            if(fumetto.Sceneggiatore.id === fumetto.Disegnatore.id){
+                document.querySelector(".aut").innerHTML = "Scritto e disegnato da "+ fumetto.Sceneggiatore.name +" "+ fumetto.Sceneggiatore.surname;
+                console.log("sono uguali")
+            }
+                
+            else{
+                document.querySelector(".aut").innerHTML = "Scritto da "+ fumetto.Sceneggiatore.name +" "+ fumetto.Sceneggiatore.surname+ " e disegnato da "+fumetto.Disegnatore.name +" "+ fumetto.Disegnatore.surname;
+                console.log("non sono uguali")
+            }
+                
+
+            let gen = document.querySelector(".gen");
+            gen.innerHTML = new Date(fumetto.releaseDate).getFullYear() +" | ";
+
+            fumetto.Genres.forEach((genere, index) => {
+                if(index == fumetto.Genres.length - 1)
+                    gen.innerHTML = gen.innerHTML +" "+ genere.name
+                else
+                    gen.innerHTML = gen.innerHTML +" "+ genere.name+","
+            });
+
+            let newEp = document.createElement('div')
+            newEp.classList.add("episode");
+            newEp.id = 'newEp';
+
+            //newEp.style.backgroundImage = "url('/imgs/"+fumetto.id+"ante"+(i)+".png')"
+            if(sessionStorage.getItem("token") != null || !isTokenExpired(sessionStorage.getItem("token"))){
+                let anchorEpisode = document.createElement('a')
+                anchorEpisode.classList.add("episode-text");
+                anchorEpisode.href = "http://127.0.0.1:5500/addChapter.html?id="+id
+                
+                let pEpisode = document.createElement('p')
+                pEpisode.textContent = "+";
+
+                anchorEpisode.appendChild(pEpisode);
+                newEp.appendChild(anchorEpisode);
+                document.querySelector(".episodes").appendChild(newEp);
+            }
+            
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('loading-screen').style.display = 'none';
+            document.querySelector('.footer').style.display = 'flex';
+        }
+
+        async function showComic() {
+            const fumetto = await getFumetto()
+            await showEpisodes(fumetto);
+        }
+        async function getFumetto(){
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const id = urlParams.get('id');
+                let fetchURL = 'http://127.0.0.1:3000/fumetto/'+id;
+                const response = await fetch(fetchURL)
+                if(response.ok){
+                    const fumetto = await response.json();
+                    return fumetto
+                }else{
+                    throw new Error("Errore fetch")
+                }
+            }catch(e){
+                console.log("Errore: "+e)
+                return e
+            }
+        }
+        showComic()
+    </script>
+    
+
+    <script>
+
+        window.onload = showEpisodes()
+
+        window.onresize = function(event) {
+            if (window.innerWidth < 500) {
+                window.location = "mobile/comic.html";            
+            }
+        };
+            
+
+    </script>
+</body>
+</html>

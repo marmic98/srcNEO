@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
+        <link rel="stylesheet" href="styleContattiMobile.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); </style>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        </style>
+
+        <title>Contatti</title>
+
+    </head>
+    <body>
+
+        
+
+        <div class="topnav">
+            <a class="logo" href="indexMobile.html" ><img src="imgs/logosmall.png" alt="logo"></a>
+            <!-- Navigation links (hidden by default) -->
+        
+            <div id="myLinks">
+                <a class="mainLink" href="comics.html">Fumetti</a>
+                <a class="mainLink" href="chisiamoMobile.html">Chi siamo</a>
+                <a class="mainLink" href="contattimobile.html">Contatti</a>
+              
+              
+              <div class="social">
+                <a class="social-icon" href="https://www.instagram.com/nuova_editoria_organizzata/?igshid=YmMyMTA2M2Y=" target="_blank"><img src="imgs/ig20.png" alt="instagram"></a>
+                <a class="social-icon" href="https://t.me/nuovaeditoriaorganizzata" target="_blank"><img src="imgs/tg20.png" alt="telegram"></a>
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100087615355844" target="_blank"><img src="imgs/fb20.png" alt="facebook" ></a>
+                <a class="social-icon" href="https://twitter.com/NEOeditoria?t=FUjJCNI28b2ukIl4UU1zMQ&s=09" target="_blank"><img src="imgs/tw20.png" alt="twitter" ></a>
+            </div>
+        
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        
+          <script>
+                    /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+                function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                }
+          </script>
+
+        <p class="titolo">
+            contattaci
+        </p>
+
+        <p class="testo">
+             Scrivi alla nostra mail se: <br> <br>
+
+           <ul>
+            <li>Ti interessa dedicarci un articolo o vuoi invitarci ad un evento, fiera o simili;
+            </li>
+            <li>Se sei un librario e ti piacerebbe inserire i nostri cartacei nel tuo negozio;
+            </li>
+            <li>Se vuoi lavorare con noi.</li>
+           </ul>
+
+        </p>
+        <p class="testo">
+           <strong>NB.</strong> Attualmente siamo ancora in assestamento ma non escludiamo la possibilità di collaborazioni nel prossimo futuro. Ti consigliamo dunque di seguire le nostre pagine social per aggiornamenti ed eventuali call, sia per artisti che sceneggiatori. 
+            Se vuoi comunque mostrarci il tuo lavoro è preferibile l'invio di un proposal in formato PDF di 10 mb max (tavole, progetti, sceneggiature etc.) 
+            piuttosto che un C.V. tradizionale. <br><br>
+
+            Grazie!
+        </p>
+
+        <div class="mail">
+            <img src="../imgs/mail.png" alt="mailicon">
+            <p class="mailtext"> 
+                nuovaeditoriaorganizzata@gmail.com
+            </p>
+        </div>
+        <script>
+
+            window.onresize = function(event) {
+                if (window.innerWidth >= 500) {
+                            window.location = "../contatti.html";
+                            
+                        }
+            };
+                
+        </script>
+    </body>
+</html>
