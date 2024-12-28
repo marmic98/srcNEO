@@ -70,16 +70,22 @@
                           <li>Ti interessa dedicarci un articolo o vuoi invitarci ad un evento, fiera o simili;</li>  
                            <li>Se sei un librario e ti piacerebbe inserire i nostri cartacei nel tuo negozio;</li> 
                            <li>Se vuoi lavorare con noi.</li>  
-
                         </ul>
                         <br> 
 
-                       <p class="infotext"> <strong>NB.</strong> Attualmente siamo ancora in assestamento ma non escludiamo la possibilità di collaborazioni nel prossimo futuro. Ti consigliamo dunque di seguire le nostre pagine social per aggiornamenti ed eventuali call, sia per artisti che sceneggiatori. 
-                        Se vuoi comunque mostrarci il tuo lavoro è preferibile l'invio di un proposal in formato PDF di 10 mb max (tavole, progetti, sceneggiature etc.) 
-                        piuttosto che un C.V. tradizionale. <br><br>
+                       <p class="infotext"> 
+                            <strong>NB.</strong> Attualmente siamo ancora in assestamento ma non escludiamo la possibilità di collaborazioni nel prossimo futuro. Ti consigliamo dunque di seguire le nostre pagine social per aggiornamenti ed eventuali call, sia per artisti che sceneggiatori. 
+                            Se vuoi comunque mostrarci il tuo lavoro è preferibile l'invio di un proposal in formato PDF di 10 mb max (tavole, progetti, sceneggiature etc.) 
+                            piuttosto che un C.V. tradizionale. <br><br>
 
-                        Grazie!
-                    </p>
+                            Grazie!
+                        </p>
+                        <br>
+                        <form id="subscribeform">
+                            <input type="text" id="email-input" name="email-input" placeholder="Inserisci la tua email" required>
+                            <input type="submit" value="Iscriviti"><br>
+                        </form>
+                        <p class="infotext" id="unsubscribeButton">Se desideri disiscriverti dalla nostra newsletter, scrivi la tua email nel form di iscrizione e clicca qui</p>
                 </div>
             </div>
         </div>
@@ -92,10 +98,58 @@
 
             window.onresize = function(event) {
                 if (window.innerWidth < 600) {
-                            window.location = "mobile/contattimobile.html";
-                            
-                        }
+                    window.location = "mobile/contattimobile.html";
+                }
             };
+
+            document.getElementById('subscribeform').addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const email = document.getElementById('email-input')
+                const data = {
+                    "email": email.value,  
+                }
+                let response = await fetch("http://127.0.0.1:3000/users/subscribe", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'  // Tell the server you're sending JSON
+                    },
+                    body: JSON.stringify(data)
+                })
+                if(response.ok){
+                    alert('Iscritto con successo!')
+                }else if(response.status === 400){
+                    alert('Sei gia presente!')
+                }else{
+                    alert('Si e verificato un errore')
+                }
+
+            })
+
+            document.getElementById('unsubscribeButton').addEventListener('click', async function (event) {
+                event.preventDefault();
+                const email = document.getElementById('email-input')
+
+                if(email.value === '')
+                    alert('Digita prima la tua email')
+                const data = {
+                    "email": email.value,  
+                }
+                let response = await fetch("http://127.0.0.1:3000/users/unsubscribe", {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'  // Tell the server you're sending JSON
+                    },
+                    body: JSON.stringify(data)
+                })
+                if(response.ok){
+                    alert('Disiscritto con successo!')
+                }else if(response.status === 400){
+                    alert('Non sei presente!')
+                }else{
+                    alert('Si e verificato un errore')
+                }
+
+            })
                 
         </script>
     </body>
