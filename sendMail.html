@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js" defer></script>
+    <title>Invia Email</title>
+</head>
+<body>
+    <form>
+        <label for="oggetto">Oggetto</label><br>
+        <input type="text" id="oggetto" required><br>
+
+        <label for="testo">Testo</label><br>
+        <input type="text" id="testo" placeholder="  scrivi email..." required><br>
+        <button type="submit">Invia</button>
+    </form>
+</body>
+
+<script>
+    if(sessionStorage.getItem("token") == null){
+        window.location.href="/index.html";
+    }
+
+    function validateImg(input){
+        let file  = input.files[0]
+        if(file && file.type !== 'image/png'){
+            alert('formato sbagliato!')
+            input.value=""
+        }
+    }
+
+    document.querySelector('form').addEventListener('submit', async function(event){
+        event.preventDefault();
+        const oggetto = document.getElementById('oggetto').value
+        const testo = document.getElementById('testo').value
+        const data = {
+            "oggetto": oggetto,
+            "emailText": testo,  
+        }
+        let response = await fetch("http://127.0.0.1:3000/users/sendEmail", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'  // Tell the server you're sending JSON
+            },
+            body: JSON.stringify(data)
+        })
+        if(response.ok){
+            alert('Email inviata!')
+        }else{
+            alert('Si e verificato un errore')
+        }    
+    })
+</script>
+</html>
